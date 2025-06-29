@@ -34,16 +34,138 @@
     .product .discounted-price { color: #e74c3c; font-weight: bold; }
     .product button { background-color: #25D366; color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: background 0.3s; }
     .product button:hover { background-color: #1ebc59; }
+    .product .product-description { text-align: left; margin: 1rem 0; }
+    .product .product-description .short { display: block; }
+    .product .product-description .full { display: none; margin-top: 1rem; font-size: 0.9rem; }
+    .product .product-description.show-full .full { display: block; }
+    .product .product-description.show-full .short { display: none; }
+    .product .more-btn { background: none; border: none; color: #3498db; cursor: pointer; font-weight: bold; padding: 0; font-size: 0.9rem; }
+    .cart { max-width: 600px; margin: 2rem auto; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+    .cart h2 { text-align: center; color: #2c3e50; margin-bottom: 1.5rem; font-size: 1.5rem; }
+    .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; border-bottom: 1px solid #ecf0f1; font-size: 1rem; }
+    .cart-item button { background-color: #e74c3c; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 5px; cursor: pointer; font-size: 0.9rem; transition: background 0.3s; }
+    .cart-item button:hover { background-color: #c0392b; }
+    .cart-total { font-weight: bold; text-align: right; margin-top: 1rem; color: #2c3e50; font-size: 1.2rem; }
     form { max-width: 600px; margin: 2rem auto; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
     form h2 { text-align: center; color: #2c3e50; margin-bottom: 1.5rem; font-size: 1.5rem; }
     form input, form textarea, form button, form select { width: 100%; margin-bottom: 1rem; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1.1rem; }
     form .input-with-icon { position: relative; }
     form .input-with-icon i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: 1.3rem; }
     form .input-with-icon input, form .input-with-icon select { padding-left: 2.8rem; }
+    form .fa-user { color: #3498db; }
+    form .fa-phone { color: #25D366; }
+    form .fa-road { color: #e67e22; }
+    form .fa-map-marker-alt { color: #e74c3c; }
+    form .fa-globe { color: #2ecc71; }
+    form .fa-city { color: #8e44ad; }
+    form .fa-lock { color: #e74c3c; }
     form button { background-color: #0088cc; color: white; border: none; padding: 0.8rem; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; transition: background 0.3s; }
     form button:hover { background-color: #005f8a; }
     #shipping-cost, #total-cost { background: #f0f0f0; padding: 1rem; border-radius: 5px; text-align: center; font-weight: bold; color: #2c3e50; font-size: 1.1rem; }
     .footer { background: #2c3e50; color: white; text-align: center; padding: 1.5rem; margin-top: 2rem; font-size: 1.1rem; }
+    .notification { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: #2c3e50; color: white; padding: 1rem 1.5rem; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); z-index: 1000; display: none; font-size: 1rem; }
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000; justify-content: center; align-items: center; }
+    .modal-content { max-width: 90%; max-height: 90vh; background: white; padding: 1.5rem; border-radius: 10px; text-align: center; overflow: auto; }
+    .modal-content img { max-width: 100%; max-height: 80vh; border-radius: 5px; object-fit: contain; }
+    .close { color: #aaa; font-size: 28px; font-weight: bold; position: absolute; top: 15px; right: 20px; cursor: pointer; }
+    .close:hover, .close:focus { color: #000; text-decoration: none; cursor: pointer; }
+    .admin-panel { display: none; max-width: 900px; margin: 2rem auto; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+    .admin-panel h2 { text-align: center; color: #2c3e50; margin-bottom: 1.5rem; font-size: 1.5rem; }
+    .admin-panel form { display: flex; flex-direction: column; gap: 1rem; }
+    .admin-panel input, .admin-panel textarea, .admin-panel button, .admin-panel select { padding: 0.7rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem; }
+    .admin-panel .product-list, .admin-panel .order-list { margin-top: 1.5rem; }
+    .admin-panel .product-list div, .admin-panel .order-list div { display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid #eee; }
+    .admin-panel .product-list button, .admin-panel .order-list button { background: #e74c3c; color: white; border: none; padding: 0.4rem 0.9rem; border-radius: 5px; cursor: pointer; margin-left: 0.7rem; font-size: 0.9rem; transition: background 0.3s; }
+    .admin-panel .product-list button.edit-btn { background: #3498db; }
+    .admin-panel .product-list button.edit-btn:hover { background: #2980b9; }
+    .admin-panel .product-list button:hover, .admin-panel .order-list button:hover { background: #c0392b; }
+    .admin-panel .order-list button.details-btn { background: #2ecc71; }
+    .admin-panel .order-list button.details-btn:hover { background: #27ae60; }
+    .toggle-admin { display: none; background-color: #3498db; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 5px; cursor: pointer; font-size: 1.1rem; margin: 1.5rem auto; }
+    .login-btn { background-color: #3498db; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 5px; cursor: pointer; font-size: 1.1rem; margin: 1.5rem auto; display: block; }
+    .logout-btn { background-color: #e74c3c; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 5px; cursor: pointer; font-size: 1.1rem; margin: 0.7rem auto; display: block; }
+    .edit-modal, .order-modal, .login-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 1001; justify-content: center; align-items: center; }
+    .edit-modal-content, .order-modal-content, .login-modal-content { background: #fff; padding: 1.5rem; border-radius: 10px; width: 90%; max-width: 450px; position: relative; z-index: 1002; }
+    .edit-modal-content button, .order-modal-content button, .login-modal-content button { background-color: #3498db; color: white; border: none; padding: 0.6rem; border-radius: 5px; cursor: pointer; margin-top: 1rem; font-size: 1.1rem; }
+    .edit-modal-content button:hover, .order-modal-content button:hover, .login-modal-content button:hover { background-color: #2980b9; }
+    .color-option { display: flex; align-items: center; }
+    .color-option span { width: 20px; height: 20px; border-radius: 50%; margin-left: 5px; display: inline-block; }
+    select[multiple] { height: 120px; }
+    .order-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+      background-color: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .order-table th, .order-table td {
+      border: 1px solid #e0e0e0;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+    .order-table th {
+      background-color: #3498db;
+      color: white;
+      font-weight: bold;
+    }
+    .order-table tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    .order-table tr:hover {
+      background-color: #e9ecef;
+    }
+    .order-table td {
+      vertical-align: middle;
+    }
+    .order-table .actions {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .order-table td button.details-btn {
+      background: #2ecc71;
+    }
+    .order-table td button.details-btn:hover {
+      background: #27ae60;
+    }
+    .order-table td button.remove-btn {
+      background: #e74c3c;
+    }
+    .order-table td button.remove-btn:hover {
+      background: #c0392b;
+    }
+    .status-pending { background-color: #ffeb3b; color: #333; }
+    .status-completed { background-color: #4caf50; color: white; }
+    .status-cancelled { background-color: #e74c3c; color: white; }
+    .status-shipping { background-color: #3498db; color: white; }
+    .track-order { max-width: 600px; margin: 2rem auto; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+    .track-order h2 { text-align: center; color: #2c3e50; margin-bottom: 1.5rem; font-size: 1.5rem; }
+    .track-order input, .track-order button { width: 100%; margin-bottom: 1rem; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1.1rem; }
+    .track-order .input-with-icon { position: relative; }
+    .track-order .input-with-icon i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: 1.3rem; color: #3498db; }
+    .track-order .input-with-icon input { padding-left: 2.8rem; }
+    .track-order button { background-color: #3498db; color: white; border: none; cursor: pointer; transition: background 0.3s; }
+    .track-order button:hover { background-color: #2980b9; }
+    .track-result { margin-top: 1rem; padding: 1rem; border-radius: 5px; text-align: center; font-size: 1.1rem; }
+    .track-result.found { background: #e0f7fa; color: #2c3e50; }
+    .track-result.not-found { background: #ffebee; color: #e74c3c; }
+    @media (max-width: 768px) {
+      .products { grid-template-columns: 1fr; padding: 1rem; }
+      .product { padding: 1rem; }
+      .product img { max-width: 100px; }
+      .product h3 { font-size: 1.1rem; }
+      .product .price { font-size: 1rem; }
+      nav a { font-size: 1rem; padding: 0.5rem 1rem; }
+      .info-bar { font-size: 1rem; padding: 0.8rem; }
+      .cart, form, .track-order { margin: 1rem auto; padding: 1rem; }
+      .admin-panel { margin: 1rem auto; padding: 1rem; }
+      .order-table th, .order-table td { padding: 0.8rem; font-size: 0.9rem; }
+      .order-table .actions { flex-direction: column; gap: 0.3rem; }
+    }
   </style>
 </head>
 <body>
@@ -65,44 +187,74 @@
     <a href="#contact">اتصل بنا</a>
   </nav>
 
+  <div class="notification" id="notification"></div>
+
   <section class="products" id="productSection">
     <!-- المنتجات بتضاف ديناميكيًا -->
   </section>
 
-  <form id="form" onsubmit="return validateForm()">
+  <section class="cart" id="cart">
+    <h2>سلة التسوق</h2>
+    <div id="cart-items"></div>
+    <div class="cart-total" id="cart-total">الإجمالي: 0 جنيه</div>
+  </section>
+
+  <form id="form" onsubmit="saveOrder(); return false;">
     <h2>طلب المنتج</h2>
     <div class="input-with-icon">
       <i class="fas fa-user"></i>
-      <input type="text" id="name" placeholder="الاسم" required>
+      <input type="text" id="name" placeholder="الاسم" required oninput="checkFormCompletion()">
     </div>
     <div class="input-with-icon">
       <i class="fas fa-phone"></i>
-      <input type="text" id="phone" placeholder="رقم الهاتف" required>
+      <input type="text" id="phone" placeholder="رقم الهاتف" required oninput="checkFormCompletion()">
     </div>
     <div class="input-with-icon">
       <i class="fas fa-road"></i>
-      <input type="text" id="street" placeholder="اسم الشارع" required>
+      <input type="text" id="street" placeholder="اسم الشارع" required oninput="checkFormCompletion()">
     </div>
     <div class="input-with-icon">
       <i class="fas fa-map-marker-alt"></i>
-      <input type="text" id="landmark" placeholder="علامة مميزة" required>
+      <input type="text" id="landmark" placeholder="علامة مميزة" required oninput="checkFormCompletion()">
     </div>
     <label for="governorate">اختار المحافظة</label>
     <div class="input-with-icon">
       <i class="fas fa-globe"></i>
-      <select id="governorate" onchange="updateCities();" required>
+      <select id="governorate" onchange="updateCities(); updateShipping(); checkFormCompletion();" required>
         <option value="">-- اختر المحافظة --</option>
         <option value="القاهرة">القاهرة</option>
         <option value="الجيزة">الجيزة</option>
         <option value="الإسكندرية">الإسكندرية</option>
         <option value="الدقهلية">الدقهلية</option>
-        <!-- المزيد من الخيارات -->
+        <option value="البحر الأحمر">البحر الأحمر</option>
+        <option value="البحيرة">البحيرة</option>
+        <option value="الفيوم">الفيوم</option>
+        <option value="الغربية">الغربية</option>
+        <option value="الإسماعيلية">الإسماعيلية</option>
+        <option value="المنوفية">المنوفية</option>
+        <option value="المنيا">المنيا</option>
+        <option value="أسيوط">أسيوط</option>
+        <option value="سوهاج">سوهاج</option>
+        <option value="قنا">قنا</option>
+        <option value="أسوان">أسوان</option>
+        <option value="الأقصر">الأقصر</option>
+        <option value="بورسعيد">بورسعيد</option>
+        <option value="السويس">السويس</option>
+        <option value="الشرقية">الشرقية</option>
+        <option value="كفر الشيخ">كفر الشيخ</option>
+        <option value="دمياط">دمياط</option>
+        <option value="بني سويف">بني سويف</option>
+        <option value="مطروح">مطروح</option>
+        <option value="الوادي الجديد">الوادي الجديد</option>
+        <option value="شمال سيناء">شمال سيناء</option>
+        <option value="جنوب سيناء">جنوب سيناء</option>
+        <option value="القليوبية">القليوبية</option>
       </select>
     </div>
     <label for="city">اختار المدينة</label>
     <div class="input-with-icon">
       <i class="fas fa-city"></i>
-      <select id="city" required>
+      <select id="city" onchange="checkFormCompletion();" required>
         <option value="">-- اختر المدينة --</option>
       </select>
     </div>
@@ -112,40 +264,834 @@
     <button type="submit">📋 تسجيل البيانات</button>
   </form>
 
+  <section class="track-order" id="track-order">
+    <h2>تتبع الطلب</h2>
+    <form id="trackForm" onsubmit="trackOrder(event)">
+      <div class="input-with-icon">
+        <i class="fas fa-search"></i>
+        <input type="text" id="trackOrderId" placeholder="أدخل رقم الطلب" required>
+      </div>
+      <button type="submit">🔍 تتبع الطلب</button>
+    </form>
+    <div id="trackResult" class="track-result" style="display: none;"></div>
+  </section>
+
+  <div class="footer" id="contact">
+    © 2025 Ghandour Store - جميع الحقوق محفوظة<br>للتواصل: <a href="https://wa.me/01222542203" target="_blank">01222542203</a>
+  </div>
+
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <img id="modalImage" src="" alt="Enlarged Image">
+    </div>
+  </div>
+
+  <div id="loginModal" class="login-modal">
+    <div class="login-modal-content">
+      <h3>تسجيل الدخول</h3>
+      <form id="loginForm" onsubmit="login(event)">
+        <div class="input-with-icon">
+          <i class="fas fa-user"></i>
+          <input type="text" id="username" placeholder="اسم المستخدم" required>
+        </div>
+        <div class="input-with-icon">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="password" placeholder="كلمة المرور" required>
+        </div>
+        <button type="submit">تسجيل الدخول</button>
+        <button type="button" onclick="closeLoginModal()">إلغاء</button>
+      </form>
+    </div>
+  </div>
+
+  <button class="login-btn" id="loginBtn">تسجيل الدخول</button>
+  <button class="toggle-admin" onclick="toggleAdminPanel()">إدارة المنتجات</button>
+  <div class="admin-panel" id="adminPanel">
+    <h2>لوحة التحكم</h2>
+    <button class="logout-btn" onclick="logout()">تسجيل الخروج</button>
+    <form id="addProductForm" onsubmit="addProduct(event)">
+      <input type="text" id="productName" placeholder="اسم المنتج" required><br>
+      <input type="number" id="productPriceBefore" placeholder="السعر قبل الخصم" required><br>
+      <input type="number" id="productPriceAfter" placeholder="السعر بعد الخصم" required><br>
+      <label for="productColors">اختر الألوان:</label>
+      <select id="productColors" multiple required>
+        <option value="black" data-color="#000000">أسود</option>
+        <option value="white" data-color="#FFFFFF">أبيض</option>
+        <option value="red" data-color="#FF0000">أحمر</option>
+        <option value="blue" data-color="#0000FF">أزرق</option>
+        <option value="green" data-color="#008000">أخضر</option>
+        <option value="yellow" data-color="#FFFF00">أصفر</option>
+        <option value="gray" data-color="#808080">رمادي</option>
+        <option value="silver" data-color="#C0C0C0">فضي</option>
+      </select><br>
+      <input type="text" id="productImages" placeholder="روابط الصور (مفصولة بفواصل)" required><br>
+      <textarea id="productDescription" placeholder="الوصف" required></textarea><br>
+      <button type="submit">إضافة منتج</button>
+    </form>
+    <div class="product-list" id="productList"></div>
+    <h2>قائمة الطلبات</h2>
+    <table class="order-table" id="orderTable">
+      <thead>
+        <tr>
+          <th>رقم الطلب</th>
+          <th>التاريخ</th>
+          <th>الاسم</th>
+          <th>الهاتف</th>
+          <th>الإجمالي</th>
+          <th>الحالة</th>
+          <th>الإجراءات</th>
+        </tr>
+      </thead>
+      <tbody id="orderList"></tbody>
+    </table>
+  </div>
+
+  <div id="editModal" class="edit-modal">
+    <div class="edit-modal-content">
+      <h3>تعديل المنتج</h3>
+      <form id="editProductForm" onsubmit="saveEdit(event)">
+        <input type="hidden" id="editIndex">
+        <input type="text" id="editProductName" placeholder="اسم المنتج" required><br>
+        <input type="number" id="editProductPriceBefore" placeholder="السعر قبل الخصم" required><br>
+        <input type="number" id="editProductPriceAfter" placeholder="السعر بعد الخصم" required><br>
+        <label for="editProductColors">اختر الألوان:</label>
+        <select id="editProductColors" multiple required>
+          <option value="black" data-color="#000000">أسود</option>
+          <option value="white" data-color="#FFFFFF">أبيض</option>
+          <option value="red" data-color="#FF0000">أحمر</option>
+          <option value="blue" data-color="#0000FF">أزرق</option>
+          <option value="green" data-color="#008000">أخضر</option>
+          <option value="yellow" data-color="#FFFF00">أصفر</option>
+          <option value="gray" data-color="#808080">رمادي</option>
+          <option value="silver" data-color="#C0C0C0">فضي</option>
+        </select><br>
+        <input type="text" id="editProductImages" placeholder="روابط الصور (مفصولة بفواصل)" required><br>
+        <textarea id="editProductDescription" placeholder="الوصف" required></textarea><br>
+        <button type="submit">حفظ التعديل</button>
+        <button type="button" onclick="closeEditModal()">إلغاء</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="orderModal" class="order-modal">
+    <div class="order-modal-content">
+      <h3>تفاصيل الطلب</h3>
+      <div id="orderDetails"></div>
+      <button type="button" onclick="closeOrderModal()">إغلاق</button>
+      <select id="statusSelect" onchange="updateOrderStatus(this)">
+        <option value="pending">قيد التنفيذ</option>
+        <option value="completed">مكتمل</option>
+        <option value="cancelled">تم الإلغاء</option>
+        <option value="shipping">جاري التوصيل</option>
+      </select>
+    </div>
+  </div>
+
   <script>
-    function validateForm() {
+    let lang = 'ar';
+    let cart = [];
+    let shippingPrice = 0;
+
+    const translations = {
+      ar: {
+        storeName: 'Ghandour Store',
+        slogan: 'سماعات وإلكترونيات بأفضل الأسعار',
+        home: 'الرئيسية',
+        products: 'المنتجات',
+        order: 'طلب منتج',
+        trackOrder: 'تتبع الطلب',
+        contact: 'اتصل بنا',
+        addressInfo: '📍 العنوان: الشرقية - مصر | 📞 تواصل معنا: <a href="https://wa.me/01222542203" target="_blank">01222542203</a>',
+        cartTitle: 'سلة التسوق',
+        total: 'الإجمالي',
+        formTitle: 'طلب المنتج',
+        name: 'الاسم',
+        phone: 'رقم الهاتف',
+        street: 'اسم الشارع',
+        landmark: 'علامة مميزة',
+        governorate: 'اختار المحافظة',
+        city: 'اختار المدينة',
+        shippingCost: '🚚 برجاء اختيار المحافظة لعرض سعر الشحن',
+        notes: 'ملاحظات إضافية (اختياري)',
+        submit: '📋 تسجيل البيانات',
+        footer: '© 2025 Ghandour Store - جميع الحقوق محفوظة<br>للتواصل: <a href="https://wa.me/01222542203" target="_blank">01222542203</a>',
+        addedToCart: 'تم إضافة المنتج إلى السلة!',
+        removedFromCart: 'تم حذف المنتج من السلة!',
+        finalTotal: 'الإجمالي النهائي (شامل الشحن)',
+        productAdded: 'تم إضافة المنتج بنجاح!',
+        productRemoved: 'تم حذف المنتج بنجاح!',
+        productEdited: 'تم تعديل المنتج بنجاح!',
+        orderSaved: 'تم تسجيل البيانات بنجاح! رقم الطلب: ',
+        orderError: 'حدث خطأ أثناء تسجيل البيانات',
+        ordersList: 'قائمة الطلبات',
+        orderDetails: 'تفاصيل الطلب',
+        orderNumber: 'رقم الطلب',
+        date: 'التاريخ',
+        address: 'العنوان',
+        productsList: 'المنتجات',
+        totalPrice: 'إجمالي المنتجات',
+        shippingPrice: 'سعر الشحن',
+        finalTotal: 'الإجمالي النهائي',
+        notesLabel: 'ملاحظات',
+        emptyCart: 'سلة التسوق فارغة! من فضلك أضف منتجات إلى السلة.',
+        selectGovernorate: 'من فضلك اختر المحافظة',
+        selectCity: 'من فضلك اختر المدينة',
+        login: 'تسجيل الدخول',
+        logout: 'تسجيل الخروج',
+        username: 'اسم المستخدم',
+        password: 'كلمة المرور',
+        loginError: 'اسم المستخدم أو كلمة المرور غير صحيحة',
+        status: 'الحالة',
+        pending: 'قيد التنفيذ',
+        completed: 'مكتمل',
+        cancelled: 'تم الإلغاء',
+        shipping: 'جاري التوصيل',
+        statusUpdated: 'تم تحديث حالة الطلب بنجاح!',
+        trackOrderTitle: 'تتبع الطلب',
+        trackOrderInput: 'أدخل رقم الطلب',
+        trackOrderButton: '🔍 تتبع الطلب',
+        orderFound: 'حالة الطلب: ',
+        orderNotFound: 'لم يتم العثور على طلب بهذا الرقم'
+      },
+      en: {
+        storeName: 'Ghandour Store',
+        slogan: 'Headphones and Electronics at Best Prices',
+        home: 'Home',
+        products: 'Products',
+        order: 'Order Product',
+        trackOrder: 'Track Order',
+        contact: 'Contact Us',
+        addressInfo: '📍 Address: Sharkia - Egypt | 📞 Contact us: <a href="https://wa.me/01222542203" target="_blank">01222542203</a>',
+        cartTitle: 'Shopping Cart',
+        total: 'Total',
+        formTitle: 'Order Product',
+        name: 'Name',
+        phone: 'Phone Number',
+        street: 'Street Name',
+        landmark: 'Landmark',
+        governorate: 'Select Governorate',
+        city: 'Select City',
+        shippingCost: '🚚 Please select a governorate to view shipping cost',
+        notes: 'Additional Notes (Optional)',
+        submit: '📋 Register Data',
+        footer: '© 2025 Ghandour Store - All Rights Reserved<br>Contact: <a href="https://wa.me/01222542203" target="_blank">01222542203</a>',
+        addedToCart: 'Item added to cart!',
+        removedFromCart: 'Item removed from cart!',
+        finalTotal: 'Final Total (including shipping)',
+        productAdded: 'Product added successfully!',
+        productRemoved: 'Product removed successfully!',
+        productEdited: 'Product edited successfully!',
+        orderSaved: 'Data registered successfully! Order ID: ',
+        orderError: 'An error occurred while registering the data',
+        ordersList: 'Orders List',
+        orderDetails: 'Order Details',
+        orderNumber: 'Order Number',
+        date: 'Date',
+        address: 'Address',
+        productsList: 'Products',
+        totalPrice: 'Products Total',
+        shippingPrice: 'Shipping Cost',
+        finalTotal: 'Final Total',
+        notesLabel: 'Notes',
+        emptyCart: 'Shopping cart is empty! Please add items to the cart.',
+        selectGovernorate: 'Please select a governorate',
+        selectCity: 'Please select a city',
+        login: 'Login',
+        logout: 'Logout',
+        username: 'Username',
+        password: 'Password',
+        loginError: 'Invalid username or password',
+        status: 'Status',
+        pending: 'Pending',
+        completed: 'Completed',
+        cancelled: 'Cancelled',
+        shipping: 'Shipping',
+        statusUpdated: 'Order status updated successfully!',
+        trackOrderTitle: 'Track Order',
+        trackOrderInput: 'Enter Order ID',
+        trackOrderButton: '🔍 Track Order',
+        orderFound: 'Order Status: ',
+        orderNotFound: 'No order found with this ID'
+      }
+    };
+
+    document.addEventListener("DOMContentLoaded", function() {
+      const loginBtn = document.getElementById("loginBtn");
+      if (loginBtn) {
+        loginBtn.addEventListener("click", showLoginModal);
+      }
+      checkLoginStatus();
+      loadProducts();
+    });
+
+    function showLoginModal() {
+      const loginModal = document.getElementById("loginModal");
+      if (loginModal) {
+        loginModal.style.display = "flex";
+      }
+    }
+
+    function closeLoginModal() {
+      const loginModal = document.getElementById("loginModal");
+      if (loginModal) {
+        loginModal.style.display = "none";
+        document.getElementById("loginForm").reset();
+      }
+    }
+
+    function login(event) {
+      event.preventDefault();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      if (username === "ghandour" && password === "mo7md132") {
+        localStorage.setItem("isLoggedIn", "true");
+        showNotification(translations[lang].login);
+        checkLoginStatus();
+        closeLoginModal();
+      } else {
+        showNotification(translations[lang].loginError);
+      }
+    }
+
+    function checkLoginStatus() {
+      const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+      const loginBtn = document.getElementById("loginBtn");
+      const adminPanel = document.getElementById("adminPanel");
+      const toggleAdminBtn = document.querySelector(".toggle-admin");
+
+      if (isLoggedIn) {
+        if (loginBtn) loginBtn.style.display = "none";
+        if (toggleAdminBtn) toggleAdminBtn.style.display = "block";
+        if (adminPanel) adminPanel.style.display = "block";
+        loadOrders();
+      } else {
+        if (loginBtn) loginBtn.style.display = "block";
+        if (toggleAdminBtn) toggleAdminBtn.style.display = "none";
+        if (adminPanel) adminPanel.style.display = "none";
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("isLoggedIn");
+      checkLoginStatus();
+      showNotification(translations[lang].logout);
+    }
+
+    function toggleAdminPanel() {
+      const adminPanel = document.getElementById("adminPanel");
+      if (adminPanel) {
+        adminPanel.style.display = adminPanel.style.display === "none" ? "block" : "none";
+      }
+    }
+
+    function showNotification(message) {
+      const notification = document.getElementById("notification");
+      if (notification) {
+        notification.textContent = message;
+        notification.style.display = "block";
+        setTimeout(() => {
+          if (notification) notification.style.display = "none";
+        }, 3000);
+      }
+    }
+
+    function addProduct(event) {
+      event.preventDefault();
+      const name = document.getElementById("productName").value;
+      const priceBefore = parseFloat(document.getElementById("productPriceBefore").value);
+      const priceAfter = parseFloat(document.getElementById("productPriceAfter").value);
+      const colors = Array.from(document.getElementById("productColors").selectedOptions).map(option => ({
+        name: option.value,
+        color: option.dataset.color
+      }));
+      const images = document.getElementById("productImages").value.split(",");
+      const description = document.getElementById("productDescription").value;
+
+      const product = { name, priceBefore, priceAfter, colors, images, description };
+      let products = JSON.parse(localStorage.getItem("products") || "[]");
+      products.push(product);
+      localStorage.setItem("products", JSON.stringify(products));
+      document.getElementById("addProductForm").reset();
+      loadProducts();
+      showNotification(translations[lang].productAdded);
+    }
+
+    function loadProducts() {
+      const products = JSON.parse(localStorage.getItem("products") || "[]");
+      const productSection = document.getElementById("productSection");
+      const productList = document.getElementById("productList");
+      if (productSection) productSection.innerHTML = "";
+      if (productList) productList.innerHTML = "";
+
+      products.forEach((product, index) => {
+        const productDiv = document.createElement("div");
+        productDiv.className = "product";
+        const shortDescription = product.description.length > 50 ? product.description.substring(0, 50) + "..." : product.description;
+        const imagesHtml = product.images.map(img => `<img src="${img.trim()}" alt="${product.name}" onclick="openModal('${img.trim()}')">`).join("");
+        const colorsHtml = product.colors.map(color => `<span style="background-color: ${color.color}; width: 20px; height: 20px; display: inline-block; border-radius: 50%; margin-left: 5px;"></span>`).join("");
+        productDiv.innerHTML = `
+          <div class="product-images">${imagesHtml}</div>
+          <h3>${product.name}</h3>
+          <p>${colorsHtml}</p>
+          <span class="price">
+            <span class="original-price">${product.priceBefore} جنيه</span>
+            <span class="discounted-price">${product.priceAfter} جنيه</span>
+          </span>
+          <div class="product-description">
+            <span class="short">${shortDescription}</span>
+            <span class="full">${product.description}</span>
+            <button class="more-btn" onclick="toggleDescription(this)">${translations[lang].more || 'المزيد'}</button>
+          </div>
+          <button onclick="addToCart('${product.name}', ${product.priceAfter})">${translations[lang].addToCart || 'إضافة إلى السلة'}</button>
+        `;
+        if (productSection) productSection.appendChild(productDiv);
+
+        if (localStorage.getItem("isLoggedIn")) {
+          const adminProductDiv = document.createElement("div");
+          adminProductDiv.innerHTML = `
+            <span>${product.name}</span>
+            <div>
+              <button class="edit-btn" onclick="editProduct(${index})">${translations[lang].edit || 'تعديل'}</button>
+              <button onclick="removeProduct(${index})">${translations[lang].remove || 'حذف'}</button>
+            </div>
+          `;
+          if (productList) productList.appendChild(adminProductDiv);
+        }
+      });
+    }
+
+    function toggleDescription(button) {
+      const descriptionDiv = button.parentElement;
+      descriptionDiv.classList.toggle("show-full");
+      button.textContent = descriptionDiv.classList.contains("show-full") ? translations[lang].less || 'أقل' : translations[lang].more || 'المزيد';
+    }
+
+    function removeProduct(index) {
+      let products = JSON.parse(localStorage.getItem("products") || "[]");
+      products.splice(index, 1);
+      localStorage.setItem("products", JSON.stringify(products));
+      loadProducts();
+      showNotification(translations[lang].productRemoved);
+    }
+
+    function editProduct(index) {
+      const products = JSON.parse(localStorage.getItem("products") || "[]");
+      const product = products[index];
+      document.getElementById("editIndex").value = index;
+      document.getElementById("editProductName").value = product.name;
+      document.getElementById("editProductPriceBefore").value = product.priceBefore;
+      document.getElementById("editProductPriceAfter").value = product.priceAfter;
+      const colorSelect = document.getElementById("editProductColors");
+      Array.from(colorSelect.options).forEach(option => {
+        option.selected = product.colors.some(c => c.name === option.value);
+      });
+      document.getElementById("editProductImages").value = product.images.join(",");
+      document.getElementById("editProductDescription").value = product.description;
+      document.getElementById("editModal").style.display = "flex";
+    }
+
+    function saveEdit(event) {
+      event.preventDefault();
+      const index = document.getElementById("editIndex").value;
+      const name = document.getElementById("editProductName").value;
+      const priceBefore = parseFloat(document.getElementById("editProductPriceBefore").value);
+      const priceAfter = parseFloat(document.getElementById("editProductPriceAfter").value);
+      const colors = Array.from(document.getElementById("editProductColors").selectedOptions).map(option => ({
+        name: option.value,
+        color: option.dataset.color
+      }));
+      const images = document.getElementById("editProductImages").value.split(",");
+      const description = document.getElementById("editProductDescription").value;
+
+      let products = JSON.parse(localStorage.getItem("products") || "[]");
+      products[index] = { name, priceBefore, priceAfter, colors, images, description };
+      localStorage.setItem("products", JSON.stringify(products));
+      document.getElementById("editModal").style.display = "none";
+      loadProducts();
+      showNotification(translations[lang].productEdited);
+    }
+
+    function closeEditModal() {
+      document.getElementById("editModal").style.display = "none";
+    }
+
+    function showOrderDetails(index) {
+      const orders = JSON.parse(localStorage.getItem("orders") || "[]");
+      const order = orders[index];
+      const orderDetails = document.getElementById("orderDetails");
+      const statusSelect = document.getElementById("statusSelect");
+      orderDetails.innerHTML = `
+        <p><strong>${translations[lang].orderNumber}:</strong> ${order.id}</p>
+        <p><strong>${translations[lang].date}:</strong> ${order.date}</p>
+        <p><strong>${translations[lang].name}:</strong> ${order.name}</p>
+        <p><strong>${translations[lang].phone}:</strong> ${order.phone}</p>
+        <p><strong>${translations[lang].address}:</strong> ${order.address}</p>
+        <p><strong>${translations[lang].productsList}:</strong> ${order.products.join(", ")}</p>
+        <p><strong>${translations[lang].totalPrice}:</strong> ${order.totalPrice} جنيه</p>
+        <p><strong>${translations[lang].shippingPrice}:</strong> ${order.shippingPrice} جنيه</p>
+        <p><strong>${translations[lang].finalTotal}:</strong> ${order.finalTotal} جنيه</p>
+        <p><strong>${translations[lang].notesLabel}:</strong> ${order.notes}</p>
+      `;
+      if (statusSelect) {
+        statusSelect.value = order.status || "pending";
+      }
+      document.getElementById("orderModal").style.display = "flex";
+    }
+
+    function closeOrderModal() {
+      document.getElementById("orderModal").style.display = "none";
+    }
+
+    function removeOrder(index) {
+      let orders = JSON.parse(localStorage.getItem("orders") || "[]");
+      orders.splice(index, 1);
+      localStorage.setItem("orders", JSON.stringify(orders));
+      loadOrders();
+    }
+
+    function updateOrderStatus(select) {
+      const index = Array.from(document.getElementById("orderModal").querySelectorAll("p")).findIndex(p => p.textContent.includes(translations[lang].orderNumber));
+      if (index !== -1) {
+        const orders = JSON.parse(localStorage.getItem("orders") || "[]");
+        orders[index].status = select.value;
+        localStorage.setItem("orders", JSON.stringify(orders));
+        loadOrders();
+        showNotification(translations[lang].statusUpdated);
+      }
+      closeOrderModal();
+    }
+
+    function openModal(imageSrc) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      if (modal && modalImg) {
+        modal.style.display = "flex";
+        modalImg.src = imageSrc;
+      }
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("imageModal");
+      if (modal) modal.style.display = "none";
+    }
+
+    function updateCities() {
+      const gov = document.getElementById("governorate").value;
+      const citySelect = document.getElementById("city");
+      if (citySelect) {
+        citySelect.innerHTML = `<option value="">${translations[lang].selectCity}</option>`;
+
+        const citiesData = {
+          "القاهرة": ["مدينة نصر", "المقطم", "مصر الجديدة", "الزيتون", "عين شمس", "السلام", "النزهة", "المرج", "شبرا", "المطرية", "وسط القاهرة", "المعادي", "حلوان", "15 مايو", "البساتين", "دار السلام", "التبين", "السيدة زينب", "الخليفة", "الزاوية الحمراء", "الساحل", "بولاق", "عابدين", "الجمالية", "الأزبكية", "باب الشعرية", "منشأة ناصر", "روض الفرج", "شرق مدينة نصر", "غرب مدينة نصر", "القاهرة الجديدة"],
+          "الجيزة": ["الجيزة", "6 أكتوبر", "الشيخ زايد", "الحوامدية", "البدرشين", "أوسيم", "كرداسة", "الوراق", "إمبابة", "الدقي", "العجوزة", "الهرم", "فيصل", "بولاق الدكرور", "الصف", "أطفيح", "العياط", "منشأة القناطر"],
+          "الإسكندرية": ["المنتزه أول", "المنتزه ثان", "شرق", "وسط", "غرب", "العجمي", "العامرية أول", "العامرية ثان", "برج العرب"],
+          "الدقهلية": ["المنصورة", "طلخا", "ميت غمر", "دكرنس", "أجا", "السنبلاوين", "بلقاس", "جمصة", "شربين", "المطرية", "منية النصر", "بني عبيد", "تمي الأمديد", "ميت سلسيل", "الجمالية", "المنزلة", "الكردي"],
+          "البحر الأحمر": ["الغردقة", "سفاجا", "مرسى علم", "القصير", "رأس غارب", "الشلاتين", "حلايب"],
+          "البحيرة": ["دمنهور", "كفر الدوار", "رشيد", "إدكو", "أبو المطامير", "أبو حمص", "الدلنجات", "المحمودية", "الرحمانية", "إيتاي البارود", "حوش عيسى", "شبراخيت", "النوبارية الجديدة", "وادي النطرون", "كوم حمادة", "بدر"],
+          "الفيوم": ["الفيوم", "طامية", "سنورس", "إطسا", "يوسف الصديق", "أبشواي"],
+          "الغربية": ["طنطا", "المحلة الكبرى", "زفتى", "السنطة", "قطور", "بسيون", "كفر الزيات", "سمنود"],
+          "الإسماعيلية": ["الإسماعيلية", "فايد", "القنطرة شرق", "القنطرة غرب", "التل الكبير", "أبو صوير", "القصاصين"],
+          "المنوفية": ["شبين الكوم", "منوف", "السادات", "أشمون", "قويسنا", "بركة السبع", "تلا", "الشهداء", "الباجور"],
+          "المنيا": ["المنيا", "ملوي", "مغاغة", "بني مزار", "مطاي", "سمالوط", "أبو قرقاص", "دير مواس", "العدوة"],
+          "أسيوط": ["أسيوط", "ديروط", "القوصية", "أبنوب", "منفلوط", "ساحل سليم", "الغنايم", "البداري", "صدفا", "الفتح", "أبو تيج"],
+          "سوهاج": ["سوهاج", "طهطا", "المراغة", "المنشأة", "جرجا", "البلينا", "أخميم", "ساقلتة", "طما", "جهينة", "دار السلام"],
+          "قنا": ["قنا", "نجع حمادي", "دشنا", "أبو تشت", "نقادة", "قفط", "قوص", "فرشوط", "الوقف"],
+          "أسوان": ["أسوان", "كوم أمبو", "إدفو", "دراو", "نصر النوبة"],
+          "الأقصر": ["الأقصر", "إسنا", "أرمنت", "الطود", "القرنة", "الزينية", "البياضية"],
+          "بورسعيد": ["بورسعيد", "بورفؤاد"],
+          "السويس": ["السويس", "الأربعين", "فيصل", "عتاقة", "الجناين"],
+          "الشرقية": ["الزقازيق", "بلبيس", "منيا القمح", "العاشر من رمضان", "أبو حماد", "فاقوس", "أبو كبير", "الحسينية", "ديرب نجم", "كفر صقر", "أولاد صقر", "ههيا", "الإبراهيمية", "الصالحية الجديدة"],
+          "كفر الشيخ": ["كفر الشيخ", "دسوق", "فوه", "بلطيم", "الرياض", "سيدي سالم", "الحامول", "بيلا", "قلين", "مطوبس"],
+          "دمياط": ["دمياط", "كفر سعد", "الزرقا", "رأس البر", "فارسكور", "السرو", "كفر البطيخ"],
+          "بني سويف": ["بني سويف", "ناصر", "ببا", "الفشن", "سمسطا", "إهناسيا", "الواسطى"],
+          "مطروح": ["مرسى مطروح", "الحمام", "الضبعة", "سيوة", "العلمين", "النجيلة", "سيدي براني", "السلوم"],
+          "الوادي الجديد": ["الخارجة", "الداخلة", "باريس", "بلاط", "موط"],
+          "شمال سيناء": ["العريش", "بئر العبد", "رفح", "الشيخ زويد", "الحسنة", "نخل"],
+          "جنوب سيناء": ["شرم الشيخ", "دهب", "نويبع", "طابا", "رأس سدر", "أبو رديس", "أبو زنيمة", "سانت كاترين"],
+          "القليوبية": ["بنها", "شبرا الخيمة", "القناطر الخيرية", "طوخ", "شبين القناطر", "كفر شكر", "قليوب", "الخانكة", "العبور", "الخصوص"]
+        };
+
+        if (gov && citiesData[gov]) {
+          citiesData[gov].forEach(city => {
+            const option = document.createElement("option");
+            option.value = city;
+            option.text = city;
+            citySelect.appendChild(option);
+          });
+        }
+      }
+    }
+
+    function updateShipping() {
+      const gov = document.getElementById("governorate").value;
+      const shippingText = document.getElementById("shipping-cost");
+
+      const highShippingCostAreas = ["سوهاج", "أسيوط", "المنيا", "بني سويف", "قنا", "الأقصر", "أسوان", "الفيوم", "شمال سيناء", "جنوب سيناء", "السويس", "مطروح", "الوادي الجديد"];
+
+      if (highShippingCostAreas.includes(gov)) {
+        shippingPrice = 70;
+      } else if (gov) {
+        shippingPrice = 50;
+      } else {
+        shippingPrice = 0;
+      }
+
+      if (shippingText) {
+        if (shippingPrice > 0) {
+          shippingText.innerText = `${translations[lang].shippingCostPrefix || '🚚 سعر الشحن للمحافظة المختارة:'} ${shippingPrice} ${translations[lang].currency || 'جنيه'}`;
+        } else {
+          shippingText.innerText = translations[lang].shippingCost;
+        }
+      }
+      checkFormCompletion();
+    }
+
+    function checkFormCompletion() {
       const name = document.getElementById("name").value;
       const phone = document.getElementById("phone").value;
       const street = document.getElementById("street").value;
       const landmark = document.getElementById("landmark").value;
       const governorate = document.getElementById("governorate").value;
       const city = document.getElementById("city").value;
-      if (!name || !phone || !street || !landmark || !governorate || !city) {
-        alert("من فضلك أكمل جميع الحقول!");
-        return false;
+      const totalCost = document.getElementById("total-cost");
+      const total = cart.reduce((sum, item) => sum + item.price, 0);
+
+      if (totalCost && name && phone && street && landmark && governorate && city && cart.length > 0) {
+        totalCost.style.display = "block";
+        totalCost.innerText = `${translations[lang].finalTotal}: ${total + shippingPrice} ${translations[lang].currency || 'جنيه'}`;
+      } else if (totalCost) {
+        totalCost.style.display = "none";
       }
-      return true;
     }
 
-    function updateCities() {
-      const gov = document.getElementById("governorate").value;
-      const citySelect = document.getElementById("city");
-      citySelect.innerHTML = '<option value="">-- اختر المدينة --</option>'; // reset cities
-      const citiesData = {
-        "القاهرة": ["مدينة نصر", "المقطم", "مصر الجديدة", "الزيتون", "عين شمس"],
-        "الجيزة": ["الجيزة", "6 أكتوبر", "الشيخ زايد", "البدرشين"],
-        // إضافة باقي المدن هنا...
-      };
-      if (citiesData[gov]) {
-        citiesData[gov].forEach(city => {
-          const option = document.createElement("option");
-          option.value = city;
-          option.text = city;
-          citySelect.appendChild(option);
-        });
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      updateCart();
+      showNotification(translations[lang].addedToCart);
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCart();
+      showNotification(translations[lang].removedFromCart);
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById("cart-items");
+      const cartTotal = document.getElementById("cart-total");
+      if (cartItems) cartItems.innerHTML = '';
+
+      let total = 0;
+      cart.forEach((item, index) => {
+        const itemDiv = document.createElement("div");
+        itemDiv.className = "cart-item";
+        itemDiv.innerHTML = `
+          <span>${item.name}: ${item.price} ${translations[lang].currency || 'جنيه'}</span>
+          <button onclick="removeFromCart(${index})">${translations[lang].remove || 'حذف'}</button>
+        `;
+        if (cartItems) cartItems.appendChild(itemDiv);
+        total += item.price;
+      });
+
+      if (cartTotal) cartTotal.innerText = `${translations[lang].total}: ${total} ${translations[lang].currency || 'جنيه'} (${translations[lang].excludingShipping || 'غير شامل الشحن'})`;
+      checkFormCompletion();
+    }
+
+    function saveOrder() {
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const street = document.getElementById("street").value;
+      const landmark = document.getElementById("landmark").value;
+      const governorate = document.getElementById("governorate").value;
+      const city = document.getElementById("city").value;
+      const notes = document.getElementById("notes").value;
+
+      if (cart.length === 0) {
+        alert(translations[lang].emptyCart);
+        return;
       }
+      if (!governorate) {
+        alert(translations[lang].selectGovernorate);
+        return;
+      }
+      if (!city) {
+        alert(translations[lang].selectCity);
+        return;
+      }
+
+      let totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
+      let finalTotal = totalPrice + shippingPrice;
+      let productsList = cart.map(item => `${item.name} (${item.price} ${translations[lang].currency || 'جنيه'})`);
+
+      const order = {
+        id: Date.now(),
+        date: new Date().toLocaleString(),
+        name,
+        phone,
+        address: `${street}, ${landmark} - ${city} - ${governorate}`,
+        products: productsList,
+        totalPrice,
+        shippingPrice,
+        finalTotal,
+        notes: notes || translations[lang].noNotes || 'لا يوجد',
+        status: 'pending'
+      };
+
+      let orders = JSON.parse(localStorage.getItem("orders") || "[]");
+      orders.push(order);
+      localStorage.setItem("orders", JSON.stringify(orders));
+
+      showNotification(translations[lang].orderSaved + order.id);
+      cart = [];
+      updateCart();
+      if (document.getElementById("form")) document.getElementById("form").reset();
+      if (document.getElementById("total-cost")) document.getElementById("total-cost").style.display = "none";
+      if (document.getElementById("shipping-cost")) document.getElementById("shipping-cost").innerText = translations[lang].shippingCost;
+      loadOrders();
+    }
+
+    function trackOrder(event) {
+      event.preventDefault();
+      const orderId = document.getElementById("trackOrderId").value;
+      const trackResult = document.getElementById("trackResult");
+      const orders = JSON.parse(localStorage.getItem("orders") || "[]");
+      const order = orders.find(o => o.id == orderId);
+
+      if (trackResult) {
+        if (order) {
+          trackResult.style.display = "block";
+          trackResult.className = "track-result found";
+          trackResult.innerHTML = `${translations[lang].orderFound} <span class="status-${order.status}">${translations[lang][order.status]}</span>`;
+        } else {
+          trackResult.style.display = "block";
+          trackResult.className = "track-result not-found";
+          trackResult.textContent = translations[lang].orderNotFound;
+        }
+      }
+
+      document.getElementById("trackForm").reset();
+    }
+
+    function loadOrders() {
+      if (!localStorage.getItem("isLoggedIn")) return;
+      const orders = JSON.parse(localStorage.getItem("orders") || "[]");
+      const orderList = document.getElementById("orderList");
+      if (orderList) orderList.innerHTML = "";
+      orders.forEach((order, index) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${order.id}</td>
+          <td>${order.date}</td>
+          <td>${order.name}</td>
+          <td>${order.phone}</td>
+          <td>${order.finalTotal} ${translations[lang].currency || 'جنيه'}</td>
+          <td><span class="status-${order.status}">${translations[lang][order.status]}</span></td>
+          <td class="actions">
+            <button class="details-btn" onclick="showOrderDetails(${index})">${translations[lang].details || 'عرض التفاصيل'}</button>
+            <button class="remove-btn" onclick="removeOrder(${index})">${translations[lang].remove || 'حذف'}</button>
+          </td>
+        `;
+        if (orderList) orderList.appendChild(row);
+      });
+    }
+
+    function toggleLanguage() {
+      lang = lang === 'ar' ? 'en' : 'ar';
+      const languageSwitch = document.querySelector('.language-switch');
+      if (languageSwitch) languageSwitch.textContent = lang === 'ar' ? 'العربية | English' : 'English | العربية';
+
+      const headerH1 = document.querySelector('header h1');
+      if (headerH1) headerH1.textContent = translations[lang].storeName;
+
+      const headerP = document.querySelector('header p');
+      if (headerP) headerP.textContent = translations[lang].slogan;
+
+      const infoBarP = document.querySelector('.info-bar p');
+      if (infoBarP) infoBarP.innerHTML = translations[lang].addressInfo;
+
+      const navLinks = document.querySelectorAll('nav a');
+      if (navLinks.length >= 5) {
+        navLinks[0].textContent = translations[lang].home;
+        navLinks[1].textContent = translations[lang].products;
+        navLinks[2].textContent = translations[lang].order;
+        navLinks[3].textContent = translations[lang].trackOrder;
+        navLinks[4].textContent = translations[lang].contact;
+      }
+
+      const cartH2 = document.querySelector('#cart h2');
+      if (cartH2) cartH2.textContent = translations[lang].cartTitle;
+
+      const formH2 = document.querySelector('#form h2');
+      if (formH2) formH2.textContent = translations[lang].formTitle;
+
+      const nameInput = document.querySelector('#form [id="name"]');
+      if (nameInput) nameInput.placeholder = translations[lang].name;
+
+      const phoneInput = document.querySelector('#form [id="phone"]');
+      if (phoneInput) phoneInput.placeholder = translations[lang].phone;
+
+      const streetInput = document.querySelector('#form [id="street"]');
+      if (streetInput) streetInput.placeholder = translations[lang].street;
+
+      const landmarkInput = document.querySelector('#form [id="landmark"]');
+      if (landmarkInput) landmarkInput.placeholder = translations[lang].landmark;
+
+      const governorateLabel = document.querySelector('#form label[for="governorate"]');
+      if (governorateLabel) governorateLabel.textContent = translations[lang].governorate;
+
+      const cityLabel = document.querySelector('#form label[for="city"]');
+      if (cityLabel) cityLabel.textContent = translations[lang].city;
+
+      const shippingCost = document.getElementById('shipping-cost');
+      if (shippingPrice > 0) {
+        shippingCost.innerText = `${translations[lang].shippingCostPrefix || '🚚 سعر الشحن للمحافظة المختارة:'} ${shippingPrice} ${translations[lang].currency || 'جنيه'}`;
+      } else {
+        shippingCost.innerText = translations[lang].shippingCost;
+      }
+
+      const notesTextarea = document.querySelector('#form [id="notes"]');
+      if (notesTextarea) notesTextarea.placeholder = translations[lang].notes;
+
+      const submitButton = document.querySelector('#form button[type="submit"]');
+      if (submitButton) submitButton.textContent = translations[lang].submit;
+
+      const trackOrderH2 = document.querySelector('#track-order h2');
+      if (trackOrderH2) trackOrderH2.textContent = translations[lang].trackOrderTitle;
+
+      const trackOrderInput = document.querySelector('#track-order [id="trackOrderId"]');
+      if (trackOrderInput) trackOrderInput.placeholder = translations[lang].trackOrderInput;
+
+      const trackOrderButton = document.querySelector('#track-order button[type="submit"]');
+      if (trackOrderButton) trackOrderButton.textContent = translations[lang].trackOrderButton;
+
+      const footer = document.querySelector('.footer');
+      if (footer) footer.innerHTML = translations[lang].footer;
+
+      const loginBtn = document.getElementById('loginBtn');
+      if (loginBtn) loginBtn.textContent = translations[lang].login;
+
+      const toggleAdminBtn = document.querySelector('.toggle-admin');
+      if (toggleAdminBtn) toggleAdminBtn.textContent = translations[lang].products;
+
+      const logoutBtn = document.querySelector('.logout-btn');
+      if (logoutBtn) logoutBtn.textContent = translations[lang].logout;
+
+      const loginModalH3 = document.querySelector('#loginModal h3');
+      if (loginModalH3) loginModalH3.textContent = translations[lang].login;
+
+      const usernameInput = document.querySelector('#loginModal [id="username"]');
+      if (usernameInput) usernameInput.placeholder = translations[lang].username;
+
+      const passwordInput = document.querySelector('#loginModal [id="password"]');
+      if (passwordInput) passwordInput.placeholder = translations[lang].password;
+
+      updateCart();
+      loadProducts();
+      loadOrders();
     }
   </script>
-
+  
 </body>
 </html>
