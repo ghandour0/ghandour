@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="متجر Ghandour Store يقدم سماعات وإلكترونيات بأفضل الأسعار في مصر. اشتري الآن منتجات عالية الجودة!">
+  <meta name="keywords" content="سماعات, إلكترونيات, متجر إلكترونيات, Ghandour Store, مصر">
+  <meta name="robots" content="index, follow">
+  <title>Ghandour Store - سماعات وإلكترونيات</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Cairo', sans-serif; background-color: #f9f9fb; color: #333; line-height: 1.6; position: relative; }
+    header { background: linear-gradient(90deg, #2c3e50, #3498db); color: white; padding: 1.5rem; text-align: center; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+    header .language-switch { position: absolute; top: 1rem; left: 1rem; background: #fff; color: #2c3e50; border: none; padding: 0.5rem 1.2rem; border-radius: 5px; cursor: pointer; font-size: 1rem; transition: background 0.3s; }
+    header .language-switch:hover { background: #e9ecef; }
+    nav { background-color: #34495e; padding: 1rem; display: flex; justify-content: center; gap: 2rem; }
+    nav a { color: white; text-decoration: none; padding: 0.6rem 1.2rem; font-size: 1.1rem; transition: background 0.3s; border-radius: 5px; }
+    nav a:hover { background-color: #2c3e50; }
+    .info-bar { background-color: #ecf0f1; text-align: center; padding: 1rem; font-size: 1.1rem; color: #2c3e50; }
+    .info-bar a { color: #e74c3c; text-decoration: none; }
+    .info-bar a:hover { text-decoration: underline; }
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; padding: 1.5rem; max-width: 1200px; margin: 0 auto; }
+    .product { background: white; border-radius: 10px; padding: 1.5rem; text-align: center; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s; }
+    .product:hover { transform: translateY(-5px); }
+    .product .product-images { display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem; }
+    .product img { max-width: 120px; height: auto; border-radius: 5px; cursor: pointer; transition: transform 0.3s; }
+    .product img:hover { transform: scale(1.05); }
+    .product h3 { margin: 1rem 0; color: #2c3e50; font-size: 1.3rem; }
+    .product p { color: #7f8c8d; margin-bottom: 1rem; font-size: 1rem; }
+    .product .price { display: block; margin: 1rem 0; font-size: 1.2rem; }
+    .product .original-price { text-decoration: line-through; color: #888; margin-right: 1rem; }
+    .product .discounted-price { color: #e74c3c; font-weight: bold; }
+    .product button { background-color: #25D366; color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1rem; transition: background 0.3s; }
+    .product button:hover { background-color: #1ebc59; }
+    form { max-width: 600px; margin: 2rem auto; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+    form h2 { text-align: center; color: #2c3e50; margin-bottom: 1.5rem; font-size: 1.5rem; }
+    form input, form textarea, form button, form select { width: 100%; margin-bottom: 1rem; padding: 0.8rem; border: 1px solid #ddd; border-radius: 5px; font-size: 1.1rem; }
+    form .input-with-icon { position: relative; }
+    form .input-with-icon i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); font-size: 1.3rem; }
+    form .input-with-icon input, form .input-with-icon select { padding-left: 2.8rem; }
+    form button { background-color: #0088cc; color: white; border: none; padding: 0.8rem; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.1rem; transition: background 0.3s; }
+    form button:hover { background-color: #005f8a; }
+    #shipping-cost, #total-cost { background: #f0f0f0; padding: 1rem; border-radius: 5px; text-align: center; font-weight: bold; color: #2c3e50; font-size: 1.1rem; }
+    .footer { background: #2c3e50; color: white; text-align: center; padding: 1.5rem; margin-top: 2rem; font-size: 1.1rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <button class="language-switch" onclick="toggleLanguage()">العربية | English</button>
+    <h1>Ghandour Store</h1>
+    <p>سماعات وإلكترونيات بأفضل الأسعار</p>
+  </header>
+
+  <div class="info-bar">
+    <p>📍 العنوان: الشرقية - مصر | 📞 تواصل معنا: <a href="https://wa.me/01222542203" target="_blank">01222542203</a></p>
+  </div>
+
+  <nav>
+    <a href="#">الرئيسية</a>
+    <a href="#">المنتجات</a>
+    <a href="#form">طلب منتج</a>
+    <a href="#track-order">تتبع الطلب</a>
+    <a href="#contact">اتصل بنا</a>
+  </nav>
+
+  <section class="products" id="productSection">
+    <!-- المنتجات بتضاف ديناميكيًا -->
+  </section>
+
+  <form id="form" onsubmit="return validateForm()">
+    <h2>طلب المنتج</h2>
+    <div class="input-with-icon">
+      <i class="fas fa-user"></i>
+      <input type="text" id="name" placeholder="الاسم" required>
+    </div>
+    <div class="input-with-icon">
+      <i class="fas fa-phone"></i>
+      <input type="text" id="phone" placeholder="رقم الهاتف" required>
+    </div>
+    <div class="input-with-icon">
+      <i class="fas fa-road"></i>
+      <input type="text" id="street" placeholder="اسم الشارع" required>
+    </div>
+    <div class="input-with-icon">
+      <i class="fas fa-map-marker-alt"></i>
+      <input type="text" id="landmark" placeholder="علامة مميزة" required>
+    </div>
+    <label for="governorate">اختار المحافظة</label>
+    <div class="input-with-icon">
+      <i class="fas fa-globe"></i>
+      <select id="governorate" onchange="updateCities();" required>
+        <option value="">-- اختر المحافظة --</option>
+        <option value="القاهرة">القاهرة</option>
+        <option value="الجيزة">الجيزة</option>
+        <option value="الإسكندرية">الإسكندرية</option>
+        <option value="الدقهلية">الدقهلية</option>
+        <!-- المزيد من الخيارات -->
+      </select>
+    </div>
+    <label for="city">اختار المدينة</label>
+    <div class="input-with-icon">
+      <i class="fas fa-city"></i>
+      <select id="city" required>
+        <option value="">-- اختر المدينة --</option>
+      </select>
+    </div>
+    <div id="shipping-cost">🚚 برجاء اختيار المحافظة لعرض سعر الشحن</div>
+    <div id="total-cost" style="background:#e0f7fa; display:none;">🚚 الإجمالي النهائي: 0 جنيه</div>
+    <textarea id="notes" rows="4" placeholder="ملاحظات إضافية (اختياري)"></textarea>
+    <button type="submit">📋 تسجيل البيانات</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const street = document.getElementById("street").value;
+      const landmark = document.getElementById("landmark").value;
+      const governorate = document.getElementById("governorate").value;
+      const city = document.getElementById("city").value;
+      if (!name || !phone || !street || !landmark || !governorate || !city) {
+        alert("من فضلك أكمل جميع الحقول!");
+        return false;
+      }
+      return true;
+    }
+
+    function updateCities() {
+      const gov = document.getElementById("governorate").value;
+      const citySelect = document.getElementById("city");
+      citySelect.innerHTML = '<option value="">-- اختر المدينة --</option>'; // reset cities
+      const citiesData = {
+        "القاهرة": ["مدينة نصر", "المقطم", "مصر الجديدة", "الزيتون", "عين شمس"],
+        "الجيزة": ["الجيزة", "6 أكتوبر", "الشيخ زايد", "البدرشين"],
+        // إضافة باقي المدن هنا...
+      };
+      if (citiesData[gov]) {
+        citiesData[gov].forEach(city => {
+          const option = document.createElement("option");
+          option.value = city;
+          option.text = city;
+          citySelect.appendChild(option);
+        });
+      }
+    }
+  </script>
+
+</body>
+</html>
